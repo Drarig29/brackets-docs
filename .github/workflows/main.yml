@@ -3,11 +3,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build my documentation
+    name: Build and deploy the docs
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build with mkdocs
+      - name: Build and deploy
         uses: ./ # Uses an action in the root directory

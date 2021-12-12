@@ -1,5 +1,5 @@
-name: 'Build mkdocs'
-description: 'Builds my documentation'
+name: 'Build and deploy'
+description: 'Runs the Dockerfile to build and deploy the docs'
 runs:
   using: 'docker'
   image: 'Dockerfile'
