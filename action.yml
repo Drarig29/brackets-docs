@@ -1,0 +1,7 @@
+name: 'Build mkdocs'
+description: 'Builds my documentation'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - build
