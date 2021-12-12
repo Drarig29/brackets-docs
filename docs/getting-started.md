@@ -83,3 +83,59 @@ After this, you will need data. Here, either you make an API yourself or you can
 
 ???+ Note
     If you choose to make an API yourself, you can use `manager.get.tournamentData()` and `manager.get.stageData()` to retrieve the needed data for the viewer.
+
+Once you have something to get data from - let's assume the result is in a `data` variable for the example - you'll be able to do the following:
+
+```js
+window.bracketsViewer.render({
+    stages: data.stage,
+    matches: data.match,
+    matchGames: data.match_game,
+    participants: data.participant,
+})
+```
+
+Which would render something like this:
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.js"></script>
+
+<style>
+.brackets-viewer h1 {
+    margin-top: 10px;
+}
+</style>
+
+<div class="brackets-viewer"></div>
+
+<script>
+    (async () => {
+        await window.bracketsManager.create({
+            name: 'Example stage',
+            tournamentId: 0,
+            type: 'single_elimination',
+            seeding: [
+                'Team 1',
+                'Team 2',
+                'Team 3',
+                'Team 4',
+                'Team 5',
+                'Team 6',
+                'Team 7',
+                'Team 8',
+            ],
+        });
+
+        const data = await window.bracketsManager.get.stageData(0);
+        
+        window.bracketsViewer.render({
+            stages: data.stage,
+            matches: data.match,
+            matchGames: data.match_game,
+            participants: data.participant,
+        });
+    })();
+</script>
+
+???+ hint "Fun fact"
+    Here, both the manager and the viewer are running client-side 😎
