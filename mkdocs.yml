@@ -3,7 +3,10 @@ theme:
   name: material
 markdown_extensions:
   - admonition
+  - abbr
   - pymdownx.details
-  - pymdownx.superfences 
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - pymdownx.snippets
   - pymdownx.highlight:
       anchor_linenums: true

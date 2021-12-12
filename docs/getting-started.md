@@ -6,6 +6,9 @@ Then, it is used to **update the results** during the progress of the tournament
 
 The viewer can **display the state** of the tournament at any point of its lifetime.
 
+*[manager]: Provided by brackets-manager.js
+*[viewer]: Provided by brackets-viewer.js
+
 ## Choosing the storage
 
 First, you need to choose what type of storage you will continue with.
@@ -138,4 +141,4 @@ Which would render something like this:
 </script>
 
 ???+ hint "Fun fact"
-    Here, both the manager and the viewer are running client-side 😎
+    Here, both the manager and the viewer are running client-side! :sunglasses:
