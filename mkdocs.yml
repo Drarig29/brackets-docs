@@ -16,6 +16,15 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
+nav:
+  - "Welcome": "index.md"
+  - "Getting started": "getting-started.md"
+  - "User Guide":
+    - "Glossary": "user-guide/glossary.md"
+    - "Seeding": "user-guide/seeding.md"
+  - "Reference":
+    - "brackets-manager.js": "reference/manager"
+    - "brackets-viewer.js": "reference/viewer"
 markdown_extensions:
   - admonition
   - abbr
