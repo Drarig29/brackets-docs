@@ -17,5 +17,11 @@ RUN npx typedoc --readme none --excludePrivate --excludeExternals --sort source-
 FROM squidfunk/mkdocs-material
 
 WORKDIR /docs
-COPY --from=build-reference /reference/manager/docs /docs/reference/manager/
-COPY --from=build-reference /reference/viewer/docs /docs/reference/viewer/
+COPY --from=build-reference /reference/manager/docs /reference/manager/
+COPY --from=build-reference /reference/viewer/docs /reference/viewer/
+
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "serve", "--dev-addr=0.0.0.0:8000" ]
