@@ -63,9 +63,9 @@ await manager.create({
 });
 ```
 
-For more information about the vocabulary (particularly the word "stage"), see the [Glossary](guide/glossary.md).
+For more information about the vocabulary (particularly the word "stage"), see the [Glossary](user-guide/glossary.md).
 
-For an explanation about how the seeding works, see [Seeding](guide/seeding.md).
+For an explanation about how the seeding works, see [Seeding](user-guide/seeding.md).
 
 For other questions, see [FAQ](faq.md).
 
