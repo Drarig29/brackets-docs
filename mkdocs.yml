@@ -1,4 +1,6 @@
 site_name: Brackets Documentation
+site_url: https://drarig29.github.io/brackets-docs
+repo_url: https://github.com/Drarig29/brackets-docs
 theme:
   name: material
 markdown_extensions:
