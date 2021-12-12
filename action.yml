@@ -4,4 +4,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - build
+    - gh-deploy --force
