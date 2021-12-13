@@ -7,12 +7,19 @@ RUN git clone --depth=1 https://github.com/Drarig29/brackets-viewer.js /referenc
 WORKDIR /reference/manager
 RUN npm install
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
-RUN npx typedoc --readme none --customTitle 'Go back' --customTitleLink '/' src/index.ts
+RUN npx typedoc --readme none \
+  --customTitle 'Go back' --customTitleLink '/' \
+  --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
+  src/index.ts
 
 WORKDIR /reference/viewer
 RUN npm install
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
-RUN npx typedoc --readme none --customTitle 'Go back' --customTitleLink '/' --excludePrivate --excludeExternals --sort source-order src/main.ts
+RUN npx typedoc --readme none \
+  --customTitle 'Go back' --customTitleLink '/' \
+  --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
+  --excludePrivate --excludeExternals --sort source-order \
+  src/main.ts
 
 FROM squidfunk/mkdocs-material
 
