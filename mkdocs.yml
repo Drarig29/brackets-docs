@@ -26,6 +26,7 @@ nav:
   - "Reference":
     - "brackets-manager.js": "reference/manager"
     - "brackets-viewer.js": "reference/viewer"
+    - "brackets-model": "reference/model"
 markdown_extensions:
   - admonition
   - abbr
