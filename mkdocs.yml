@@ -30,6 +30,10 @@ nav:
     - "Seeding": "user-guide/seeding.md"
     - "Ordering": "user-guide/ordering.md"
     - "Storage": "user-guide/storage.md"
+  - "Demos":
+    - "Angular": "https://stackblitz.com/edit/angular-ivy-bhv3yu"
+    - "React": "https://replit.com/@Drarig29/React-and-brackets-viewerjs#src/App.js"
+    - "Toornament API": "https://replit.com/@Drarig29/Toornament-and-brackets-viewerjs#src/App.js"
   - "Reference":
     - "brackets-manager.js": "reference/manager"
     - "brackets-viewer.js": "reference/viewer"
