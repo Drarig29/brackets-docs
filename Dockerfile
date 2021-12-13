@@ -8,7 +8,7 @@ WORKDIR /reference/manager
 RUN npm install
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
 RUN npx typedoc --readme none \
-  --customTitle 'Go back' --customTitleLink '/' \
+  --customTitle 'Go back' --customTitleLink '/brackets-docs/' \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   src/index.ts
 
@@ -16,7 +16,7 @@ WORKDIR /reference/viewer
 RUN npm install
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
 RUN npx typedoc --readme none \
-  --customTitle 'Go back' --customTitleLink '/' \
+  --customTitle 'Go back' --customTitleLink '/brackets-docs/' \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   --excludePrivate --excludeExternals --sort source-order \
   src/main.ts
