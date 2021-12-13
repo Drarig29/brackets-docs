@@ -4,14 +4,15 @@ repo_url: https://github.com/Drarig29/brackets-docs
 repo_name: brackets-docs
 theme:
   name: material
-  theme:
   palette:
     - media: "(prefers-color-scheme: light)" 
+      primary: blue
       scheme: default
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)" 
+      primary: blue
       scheme: slate
       toggle:
         icon: material/toggle-switch
