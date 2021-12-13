@@ -19,14 +19,17 @@ theme:
         name: Switch to light mode
 nav:
   - "Welcome": "index.md"
-  - "Getting started": "getting-started.md"
+  - "Getting Started": "getting-started.md"
   - "User Guide":
     - "Glossary": "user-guide/glossary.md"
     - "Seeding": "user-guide/seeding.md"
+    - "Ordering": "user-guide/ordering.md"
+    - "Storage": "user-guide/storage.md"
   - "Reference":
     - "brackets-manager.js": "reference/manager"
     - "brackets-viewer.js": "reference/viewer"
     - "brackets-model": "reference/model"
+  - "About": "about.md"
 markdown_extensions:
   - admonition
   - abbr

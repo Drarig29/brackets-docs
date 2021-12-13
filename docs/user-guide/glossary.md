@@ -1,0 +1,5 @@
+- Stage
+- Group
+- Round
+- Match
+- Match game
