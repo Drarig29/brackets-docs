@@ -4,6 +4,11 @@ repo_url: https://github.com/Drarig29/brackets-docs
 repo_name: brackets-docs
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
   palette:
     - media: "(prefers-color-scheme: light)" 
       primary: blue
@@ -39,3 +44,5 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.highlight:
       anchor_linenums: true
+  - toc:
+      permalink: true
