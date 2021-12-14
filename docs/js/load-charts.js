@@ -63,203 +63,45 @@ const externalTooltipHandler = (context) => {
     tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
 };
 
-/*Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
+Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
     const datasets = histories.map((history, i) => ({
         ...repos[i],
         data: history,
-    }));*/
+    }));
 
-const datasets = [{
-    ...repos[0],
-    data: [
-        {
-            "date": "2020-08-01",
-            "starNum": 3
-        },
-        {
-            "date": "2020-09-08",
-            "starNum": 4
-        },
-        {
-            "date": "2020-09-08",
-            "starNum": 4
-        },
-        {
-            "date": "2020-09-08",
-            "starNum": 4
-        },
-        {
-            "date": "2020-09-17",
-            "starNum": 5
-        },
-        {
-            "date": "2020-09-21",
-            "starNum": 6
-        },
-        {
-            "date": "2020-10-20",
-            "starNum": 8
-        },
-        {
-            "date": "2020-10-20",
-            "starNum": 8
-        },
-        {
-            "date": "2020-10-20",
-            "starNum": 8
-        },
-        {
-            "date": "2020-11-21",
-            "starNum": 10
-        },
-        {
-            "date": "2020-11-21",
-            "starNum": 10
-        },
-        {
-            "date": "2020-11-21",
-            "starNum": 10
-        },
-        {
-            "date": "2020-12-04",
-            "starNum": 12
-        },
-        {
-            "date": "2021-01-13",
-            "starNum": 14
-        },
-        {
-            "date": "2021-01-13",
-            "starNum": 14
-        },
-        {
-            "date": "2021-01-13",
-            "starNum": 14
-        },
-        {
-            "date": "2021-01-13",
-            "starNum": 14
-        },
-        {
-            "date": "2021-02-24",
-            "starNum": 15
-        },
-        {
-            "date": "2021-02-24",
-            "starNum": 15
-        },
-        {
-            "date": "2021-02-24",
-            "starNum": 15
-        },
-        {
-            "date": "2021-02-24",
-            "starNum": 15
-        },
-        {
-            "date": "2021-03-03",
-            "starNum": 19
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-05-17",
-            "starNum": 22
-        },
-        {
-            "date": "2021-06-03",
-            "starNum": 23
-        },
-        {
-            "date": "2021-06-03",
-            "starNum": 23
-        },
-        {
-            "date": "2021-06-18",
-            "starNum": 24
-        },
-        {
-            "date": "2021-07-02",
-            "starNum": 25
-        },
-        {
-            "date": "2021-07-19",
-            "starNum": 27
-        },
-        {
-            "date": "2021-07-19",
-            "starNum": 27
-        },
-        {
-            "date": "2021-07-23",
-            "starNum": 28
-        },
-        {
-            "date": "2021-08-12",
-            "starNum": 30
-        },
-        {
-            "date": "2021-12-14",
-            "starNum": 46
-        }
-    ]
-}]
-
-new Chart('chart', {
-    type: 'line',
-    options: {
-        aspectRatio: 2,
-        interaction: {
-            mode: 'index',
-            intersect: false,
-        },
-        plugins: {
-            title: {
-                display: true,
-                position: 'left',
-                text: 'GitHub stars history'
+    new Chart('chart', {
+        type: 'line',
+        options: {
+            aspectRatio: 2,
+            interaction: {
+                mode: 'index',
+                intersect: false,
             },
-            tooltip: {
-                enabled: false,
-                position: 'nearest',
-                external: externalTooltipHandler,
+            plugins: {
+                title: {
+                    display: true,
+                    position: 'left',
+                    text: 'GitHub stars history'
+                },
+                tooltip: {
+                    enabled: false,
+                    position: 'nearest',
+                    external: externalTooltipHandler,
+                }
+            },
+            parsing: {
+                xAxisKey: 'date',
+                yAxisKey: 'starNum'
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    display: true,
+                    offset: true,
+                    time: { unit: 'day' }
+                },
             }
         },
-        parsing: {
-            xAxisKey: 'date',
-            yAxisKey: 'starNum'
-        },
-        scales: {
-            x: {
-                type: 'time',
-                display: true,
-                offset: true,
-                time: { unit: 'day' }
-            },
-        }
-    },
-    data: { datasets },
+        data: { datasets },
+    });
 });
-/*});*/
