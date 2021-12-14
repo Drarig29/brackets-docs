@@ -1,6 +1,4 @@
-# Welcome
-
-Welcome to the documentation of these two libraries (mainly):
+Welcome to the documentation of (mainly) these two libraries:
 
 - [brackets-manager.js](https://github.com/Drarig29/brackets-manager.js)
 - [brackets-viewer.js](https://github.com/Drarig29/brackets-viewer.js)

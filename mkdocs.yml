@@ -30,6 +30,7 @@ nav:
     - "Seeding": "user-guide/seeding.md"
     - "Ordering": "user-guide/ordering.md"
     - "Storage": "user-guide/storage.md"
+  - "FAQ": "faq.md"
   - "Demos":
     - "Angular": "https://stackblitz.com/edit/angular-ivy-bhv3yu"
     - "React": "https://replit.com/@Drarig29/React-and-brackets-viewerjs#src/App.js"
@@ -45,7 +46,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.emoji
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      base_path: docs
   - pymdownx.highlight:
       anchor_linenums: true
   - toc:
