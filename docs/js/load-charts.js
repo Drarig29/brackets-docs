@@ -48,8 +48,10 @@ const externalTooltipHandler = (context) => {
         return;
     }
 
-    const repoName = tooltip.dataPoints?.[0]?.dataset?.label;
-    const stars = tooltip.dataPoints?.[0]?.formattedValue;
+    const activeIndex = tooltip.dataPoints.findIndex(data => data.element.y === tooltip.caretY);
+
+    const repoName = tooltip.dataPoints?.[activeIndex]?.dataset?.label;
+    const stars = tooltip.dataPoints?.[activeIndex]?.formattedValue;
 
     tooltipEl.innerHTML = `${repoName}: <span id="stars">${stars}</span>`
 
@@ -74,7 +76,7 @@ Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(hi
         options: {
             aspectRatio: 2,
             interaction: {
-                mode: 'index',
+                mode: 'nearest',
                 intersect: false,
             },
             plugins: {
