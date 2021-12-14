@@ -6,6 +6,8 @@ We finally didn't take the step, but I still enjoy this project and the (small) 
 
 Don't mind to file an issue or start a discussion in the relevant GitHub repo! :smile:
 
+--8<-- "star-history.html"
+
 ---
 
 All of this work is under the [MIT License](https://github.com/Drarig29/brackets-manager.js/blob/master/LICENSE).

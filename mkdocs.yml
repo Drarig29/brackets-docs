@@ -41,6 +41,9 @@ nav:
   - "About": "about.md"
 extra_css:
   - css/style.css
+extra_javascript:
+  - js/star-history.js
+  - js/load-charts.js
 markdown_extensions:
   - admonition
   - abbr
