@@ -1,0 +1,21 @@
+#stars:before {
+  content: "";
+  background-color: currentColor;
+  display: inline-block;
+  margin-right: 0.2rem;
+  vertical-align: text-top;
+  width: 0.9rem;
+  height: 0.9rem;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-image: var(--md-source-stars-icon);
+  mask-image: var(--md-source-stars-icon);
+}
+
+.chart-container {
+  position: relative;
+  margin: 30px 0;
+  width: 80%;
+}

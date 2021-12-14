@@ -40,6 +40,8 @@ nav:
     - "brackets-viewer.js": "reference/viewer"
     - "brackets-model": "reference/model"
   - "About": "about.md"
+extra_css:
+  - css/style.css
 markdown_extensions:
   - admonition
   - abbr

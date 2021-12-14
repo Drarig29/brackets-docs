@@ -1,23 +1,5 @@
 <script type="text/javascript" src="https://unpkg.com/countup@1.8.2/dist/countUp.min.js"></script>
 
-<style>
-#stars:before {
-    content: "";
-    background-color: currentColor;
-    display: inline-block;
-    margin-right: .2rem;
-    vertical-align: text-top;
-    width: .9rem;
-    height: .9rem;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-image: var(--md-source-stars-icon);
-    mask-image: var(--md-source-stars-icon);
-}
-</style>
-
 Total number of stars: <span id="stars">0</span>
 
 <script>
