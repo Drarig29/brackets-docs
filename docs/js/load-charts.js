@@ -65,45 +65,47 @@ const externalTooltipHandler = (context) => {
     tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
 };
 
+const chart = new Chart('chart', {
+    type: 'line',
+    options: {
+        aspectRatio: 2,
+        interaction: {
+            mode: 'nearest',
+            intersect: false,
+        },
+        plugins: {
+            title: {
+                display: true,
+                position: 'left',
+                text: 'GitHub stars history'
+            },
+            tooltip: {
+                enabled: false,
+                position: 'nearest',
+                external: externalTooltipHandler,
+            }
+        },
+        parsing: {
+            xAxisKey: 'date',
+            yAxisKey: 'starNum'
+        },
+        scales: {
+            x: {
+                type: 'time',
+                display: true,
+                offset: true,
+                time: { unit: 'day' }
+            },
+        }
+    },
+});
+
 Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
     const datasets = histories.map((history, i) => ({
         ...repos[i],
         data: history,
     }));
 
-    new Chart('chart', {
-        type: 'line',
-        options: {
-            aspectRatio: 2,
-            interaction: {
-                mode: 'nearest',
-                intersect: false,
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    position: 'left',
-                    text: 'GitHub stars history'
-                },
-                tooltip: {
-                    enabled: false,
-                    position: 'nearest',
-                    external: externalTooltipHandler,
-                }
-            },
-            parsing: {
-                xAxisKey: 'date',
-                yAxisKey: 'starNum'
-            },
-            scales: {
-                x: {
-                    type: 'time',
-                    display: true,
-                    offset: true,
-                    time: { unit: 'day' }
-                },
-            }
-        },
-        data: { datasets },
-    });
+    chart.data = { datasets };
+    chart.update();
 });
