@@ -1,7 +1,13 @@
-FROM node:14 AS build-manager-reference
+FROM node:14 AS clone-manager
 RUN git clone --depth=1 https://github.com/Drarig29/brackets-manager.js /reference/manager
 WORKDIR /reference/manager
 RUN npm install
+
+FROM clone-manager AS build-manager-storage-calls
+RUN npm install -g brackets-storage-calls
+RUN brackets-storage-calls > calls.md
+
+FROM clone-manager AS build-manager-reference
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
 RUN npx typedoc --readme none \
   --customTitle 'Go back' --customTitleLink '/brackets-docs/' \
@@ -32,6 +38,7 @@ RUN npx typedoc --readme none \
 FROM squidfunk/mkdocs-material
 
 WORKDIR /docs
+COPY --from=build-manager-storage-calls /reference/manager/calls.md /user-guide/
 COPY --from=build-manager-reference /reference/manager/docs /reference/manager/
 COPY --from=build-viewer-reference /reference/viewer/docs /reference/viewer/
 COPY --from=build-model-reference /reference/model/docs /reference/model/
