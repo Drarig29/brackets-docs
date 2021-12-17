@@ -23,3 +23,7 @@
 .highlight .ow {
   color: var(--md-code-fg-color);
 }
+
+.highlight a + .kt {
+  color: var(--md-code-fg-color);
+}
