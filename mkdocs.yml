@@ -7,6 +7,7 @@ theme:
   features:
     - navigation.expand
     - navigation.top
+    - content.code.annotate
   palette:
     - media: "(prefers-color-scheme: light)" 
       primary: blue

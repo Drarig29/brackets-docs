@@ -48,7 +48,7 @@ Now, you can start creating tournament stages!
 ```js
 await manager.create({
     name: 'Example stage',
-    tournamentId: 0,
+    tournamentId: 0, // (1)
     type: 'single_elimination',
     seeding: [
         'Team 1',
@@ -62,6 +62,8 @@ await manager.create({
     ],
 });
 ```
+
+1.  Why do you need `tournamentId`? See [the answer](/brackets-docs/faq/#why-do-i-need-a-tournamentid) in the FAQ.
 
 For more information about the vocabulary (particularly the word "stage"), see the [Glossary](user-guide/glossary.md).
 
