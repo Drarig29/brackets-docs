@@ -105,12 +105,6 @@ Which would render something like this:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.js"></script>
 
-<style>
-.brackets-viewer h1 {
-    margin-top: 10px;
-}
-</style>
-
 <div class="brackets-viewer"></div>
 
 <script>
