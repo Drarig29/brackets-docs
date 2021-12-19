@@ -35,7 +35,7 @@ RUN npx typedoc --readme none \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   src/index.ts
 
-FROM squidfunk/mkdocs-material
+FROM squidfunk/mkdocs-material:8.1.3
 
 WORKDIR /docs
 COPY --from=build-manager-storage-calls /reference/manager/calls.md /user-guide/
