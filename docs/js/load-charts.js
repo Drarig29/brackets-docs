@@ -65,47 +65,49 @@ const externalTooltipHandler = (context) => {
     tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
 };
 
-const chart = new Chart('chart', {
-    type: 'line',
-    options: {
-        aspectRatio: 2,
-        interaction: {
-            mode: 'nearest',
-            intersect: false,
-        },
-        plugins: {
-            title: {
-                display: true,
-                position: 'left',
-                text: 'GitHub stars history'
+if (window.Chart) {
+    const chart = new Chart('chart', {
+        type: 'line',
+        options: {
+            aspectRatio: 2,
+            interaction: {
+                mode: 'nearest',
+                intersect: false,
             },
-            tooltip: {
-                enabled: false,
-                position: 'nearest',
-                external: externalTooltipHandler,
+            plugins: {
+                title: {
+                    display: true,
+                    position: 'left',
+                    text: 'GitHub stars history'
+                },
+                tooltip: {
+                    enabled: false,
+                    position: 'nearest',
+                    external: externalTooltipHandler,
+                }
+            },
+            parsing: {
+                xAxisKey: 'date',
+                yAxisKey: 'starNum'
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    display: true,
+                    offset: true,
+                    time: { unit: 'day' }
+                },
             }
         },
-        parsing: {
-            xAxisKey: 'date',
-            yAxisKey: 'starNum'
-        },
-        scales: {
-            x: {
-                type: 'time',
-                display: true,
-                offset: true,
-                time: { unit: 'day' }
-            },
-        }
-    },
-});
+    });
 
-Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
-    const datasets = histories.map((history, i) => ({
-        ...repos[i],
-        data: history,
-    }));
+    Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
+        const datasets = histories.map((history, i) => ({
+            ...repos[i],
+            data: history,
+        }));
 
-    chart.data = { datasets };
-    chart.update();
-});
+        chart.data = { datasets };
+        chart.update();
+    });
+}
