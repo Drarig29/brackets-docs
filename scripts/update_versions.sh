@@ -4,10 +4,17 @@ function get_version() {
     echo "v$version"
 }
 
+function update_version() {
+    local repo_name="brackets-$1"
+    local arg_name="$(echo "$1" | tr '[:lower:]' '[:upper:]')_VERSION"
+    
+    local version=$(get_version $repo_name)
+    
+    sed -i -r "s/ARG $arg_name=.*/ARG $arg_name=$version/" Dockerfile
+}
+
 echo "Updating versions..."
 
-cat <<EOT > VERSIONS
-MANAGER=$(get_version brackets-manager)
-VIEWER=$(get_version brackets-viewer)
-MODEL=$(get_version brackets-model)
-EOT
+update_version manager
+update_version viewer
+update_version model
