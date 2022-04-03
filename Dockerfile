@@ -1,7 +1,13 @@
+ARG MANAGER_VERSION
+ARG VIEWER_VERSION
+ARG MODEL_VERSION
+
 # Manager related
 
 FROM node:14 AS clone-manager
-RUN git clone --depth=1 https://github.com/Drarig29/brackets-manager.js /reference/manager
+ARG MANAGER_VERSION
+RUN git clone --depth=1 --single-branch --branch $MANAGER_VERSION \
+  https://github.com/Drarig29/brackets-manager.js /reference/manager
 WORKDIR /reference/manager
 RUN npm install
 
@@ -20,7 +26,9 @@ RUN npx typedoc --readme none --includeVersion \
 # Viewer related
 
 FROM node:14 AS build-viewer-reference
-RUN git clone --depth=1 https://github.com/Drarig29/brackets-viewer.js /reference/viewer
+ARG VIEWER_VERSION
+RUN git clone --depth=1 --single-branch --branch $VIEWER_VERSION \
+  https://github.com/Drarig29/brackets-viewer.js /reference/viewer
 WORKDIR /reference/viewer
 RUN npm install
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
@@ -34,7 +42,9 @@ RUN npx typedoc --readme none --includeVersion \
 # Model related
 
 FROM node:14 AS build-model-reference
-RUN git clone --depth=1 https://github.com/Drarig29/brackets-model /reference/model
+ARG MODEL_VERSION
+RUN git clone --depth=1 --single-branch --branch $MODEL_VERSION \
+  https://github.com/Drarig29/brackets-model /reference/model
 WORKDIR /reference/model
 RUN npm install
 RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports

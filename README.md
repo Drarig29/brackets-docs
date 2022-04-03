@@ -11,11 +11,7 @@ It also contains type references for [brackets-manager.js](https://github.com/Dr
 To run a local version of the documentation, you can use Docker:
 
 ```bash
-DOCKER_BUILDKIT=1 docker build . --no-cache -t build-docs:latest
-```
-
-```bash
-docker run --rm -it -p 8000:8000 \
+make && docker run --rm -it -p 8000:8000 \
   -v `pwd`/mkdocs.yml:/docs/mkdocs.yml \
   -v `pwd`/docs:/docs/docs \
   build-docs:latest
