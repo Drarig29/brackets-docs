@@ -12,3 +12,6 @@ ARGS=--build-arg MANAGER_VERSION=${MANAGER} \
 
 all:
 	${CCX} . ${ARGS} -t build-docs:latest
+
+update:
+	./scripts/update_versions.sh

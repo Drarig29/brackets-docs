@@ -8,7 +8,13 @@ It also contains type references for [brackets-manager.js](https://github.com/Dr
 
 ## Writing
 
-To run a local version of the documentation, you can use Docker:
+To update the versions of the dependencies (manager, viewer and model), run:
+
+```bash
+make update
+```
+
+To run a the documentation locally, you can use Docker:
 
 ```bash
 make && docker run --rm -it -p 8000:8000 \
