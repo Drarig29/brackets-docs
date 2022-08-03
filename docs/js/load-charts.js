@@ -66,48 +66,79 @@ const externalTooltipHandler = (context) => {
 };
 
 if (window.Chart) {
-    const chart = new Chart('chart', {
-        type: 'line',
-        options: {
-            aspectRatio: 2,
-            interaction: {
-                mode: 'nearest',
-                intersect: false,
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    position: 'left',
-                    text: 'GitHub stars history'
+    Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
+        const chart = new Chart('chart', {
+            type: 'line',
+            options: {
+                aspectRatio: 2,
+                interaction: {
+                    mode: 'nearest',
+                    intersect: false,
                 },
-                tooltip: {
-                    enabled: false,
-                    position: 'nearest',
-                    external: externalTooltipHandler,
+                plugins: {
+                    title: {
+                        display: true,
+                        position: 'left',
+                        text: 'GitHub stars history'
+                    },
+                    tooltip: {
+                        enabled: false,
+                        position: 'nearest',
+                        external: externalTooltipHandler,
+                    }
+                },
+                parsing: {
+                    xAxisKey: 'date',
+                    yAxisKey: 'starNum'
+                },
+                scales: {
+                    x: {
+                        type: 'time',
+                        display: true,
+                        offset: true,
+                        time: { unit: 'day' }
+                    },
                 }
             },
-            parsing: {
-                xAxisKey: 'date',
-                yAxisKey: 'starNum'
-            },
-            scales: {
-                x: {
-                    type: 'time',
-                    display: true,
-                    offset: true,
-                    time: { unit: 'day' }
-                },
-            }
-        },
-    });
+        });
 
-    Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
         const datasets = histories.map((history, i) => ({
             ...repos[i],
             data: history,
         }));
 
         chart.data = { datasets };
+        chart.update();
+    }).catch(() => {
+        console.error('Failed to load chart data');
+
+        const chart = new Chart('chart', {
+            type: 'line',
+            options: {
+                aspectRatio: 2,
+                interaction: {
+                    mode: 'nearest',
+                    intersect: false,
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        position: 'left',
+                        text: 'GitHub stars history'
+                    },
+                    tooltip: {
+                        enabled: false,
+                    }
+                },
+            },
+        });
+
+        const datasets = [
+            { data: [1, 2, 3], borderColor: 'rgb(214, 39, 40)', label: 'Rate', },
+            { data: [3, 2, 1], borderColor: 'rgb(214, 39, 40)', label: 'limited' },
+        ];
+
+        chart.data = { labels: ['Does', 'not', 'work'], datasets };
         chart.update();
     });
 }
