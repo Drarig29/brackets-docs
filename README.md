@@ -14,7 +14,7 @@ To update the versions of the dependencies (manager, viewer and model), run:
 make update
 ```
 
-To run a the documentation locally, you can use Docker:
+To run the documentation locally, you can use Docker:
 
 ```bash
 make && docker run --rm -it -p 8000:8000 \
