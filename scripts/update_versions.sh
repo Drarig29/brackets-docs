@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function get_version() {
     local version=$(npm show $1 --json | jq -r '.version')
     echo "Latest version for $1: $version" >&2

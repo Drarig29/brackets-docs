@@ -1,0 +1,20 @@
+on: [workflow_dispatch]
+
+env:
+  GIT_AUTHOR_EMAIL: "brackets-docs-update[bot]@drarig29.github.io"
+  GIT_AUTHOR_NAME: "brackets-docs-update"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Update docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set git user
+        run: |
+          git config user.name "${GIT_AUTHOR_NAME}"
+          git config user.email "${GIT_AUTHOR_EMAIL}"
+      - run: make update
+      - run: git commit --all -m "Update package versions"
+      - run: git push
