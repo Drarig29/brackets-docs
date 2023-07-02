@@ -20,7 +20,7 @@ jobs:
       - name: Update versions
         run: |
           make update
-          git commit --all -m "Update package versions"
+          git commit --all -m "Update package versions" || true
           git push
 
       - name: Build and deploy
