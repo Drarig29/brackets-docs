@@ -36,7 +36,7 @@ RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
   --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   --excludePrivate --excludeExternals --sort source-order \
-  src/main.ts
+  src/index.ts
 
 
 # Model related
