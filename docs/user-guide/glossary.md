@@ -51,3 +51,29 @@ If a participant does not come at the last minute, you can either replace it wit
     You can also have a look at [Toornament's documentation](https://help.toornament.com/starter/core-concepts-glossary), which is very good.
     
     The data structure used in the brackets libraries (defined in [brackets-model](https://github.com/Drarig29/brackets-model/blob/master/src/storage.ts)) is heavily inspired by Toornament's API.
+
+## TBD
+
+TBD means "To Be Determined". It's not a BYE, it's just a placeholder for a participant that hasn't been determined yet.
+
+It's used when you don't have the participant list yet, or when you want to keep the possibility to add participants later.
+
+Technically speaking, here is how it's represented in a match:
+```json hl_lines="5 6 7 8"
+// The match is not completed yet.
+{
+    "id": 1,
+    "opponent1": null, // BYE
+    "opponent2": {
+        "id": null, // TBD
+        "position": 2
+    }
+}
+
+// The match is already completed.
+{
+    "id": 1,
+    "opponent1": null, // BYE
+    "opponent2": null, // BYE
+}
+```
