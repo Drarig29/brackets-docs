@@ -16,7 +16,7 @@ RUN npm install -g brackets-storage-calls
 RUN brackets-storage-calls > calls.md
 
 FROM clone-manager AS build-manager-reference
-RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
+RUN npm install typedoc@0.25.0 typedoc-plugin-extras@3.0.0 typedoc-plugin-missing-exports@2.3.0
 RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
   --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
@@ -31,7 +31,7 @@ RUN git clone --depth=1 --single-branch --branch $VIEWER_VERSION \
   https://github.com/Drarig29/brackets-viewer.js /reference/viewer
 WORKDIR /reference/viewer
 RUN npm install
-RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
+RUN npm install typedoc@0.25.0 typedoc-plugin-extras@3.0.0 typedoc-plugin-missing-exports@2.3.0
 RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
   --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
@@ -47,7 +47,7 @@ RUN git clone --depth=1 --single-branch --branch $MODEL_VERSION \
   https://github.com/Drarig29/brackets-model /reference/model
 WORKDIR /reference/model
 RUN npm install
-RUN npm install typedoc typedoc-plugin-extras typedoc-plugin-missing-exports
+RUN npm install typedoc@0.25.0 typedoc-plugin-extras@3.0.0 typedoc-plugin-missing-exports@2.3.0
 RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
   --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
