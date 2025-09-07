@@ -132,3 +132,46 @@ await manager.create.stage({
   },
 });
 ```
+
+## Updating seeding
+
+You can update the seeding of a stage with `manager.update.seeding()`.
+
+```ts
+await manager.update.seeding(stageId, seeding, [keepSameSize]);
+```
+
+If the new seeding is shorter than the previous one, unless you set `keepSameSize` to `true`, the seeding will be shrunk to the new size.
+
+???+ info "About participant deletion"
+    The manager **does not delete participants** when you update the seeding.
+    Participants that were created previously will remain in the database as **leftovers** (a.k.a. ["tombstones"](https://en.wikipedia.org/wiki/Tombstone_(programming))).  
+
+    These participants can be reused in the same bracket or in another stage of the same tournament.  
+
+    This approach avoids accidental data loss and makes it easier to manage participants across multiple stages.
+
+In the context of updating the seeding, a `null` value in `Seeding` is treated as a TBD instead of a BYE because we consider the tournament might have been started.
+If it's not and you prefer BYEs, you should recreate the stage from scratch.
+
+As long as the seeding update does not impact existing results, it is allowed.
+
+## Confirming seeding
+
+You can confirm the seeding of a stage with `manager.update.confirmSeeding()`.
+
+```ts
+await manager.update.confirmSeeding(stageId);
+```
+
+This will convert TBDs to BYEs and propagate them. Implemented in [#131](https://github.com/Drarig29/brackets-manager.js/issues/131).
+
+## Resetting seeding
+
+You can reset the seeding of a stage with `manager.reset.seeding()`.
+
+```ts
+await manager.reset.seeding(stageId);
+```
+
+This will reset the seeding to an empty seeding, with all match opponents set to TBDs.

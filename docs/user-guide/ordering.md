@@ -91,6 +91,10 @@ If you don’t provide enough methods for the lower bracket, defaults are used b
 
 Index 0 is used for the first lower bracket round (WB losers entering), then indices 1+ are used for minor rounds in order.
 
+???+ warning "Default lower bracket ordering is only provided for tournament sizes up to 128 participants."
+    For sizes of 256 and more, all rounds will default to a `natural` ordering. To override this, you must specify your own list using the [`seedOrdering`](/brackets-docs/reference/model/interfaces/StageSettings.html#seedOrdering) setting.
+
+    You can also update ordering after creation, as said in [Updating ordering after creation](#updating-ordering-after-creation).
 
 ## Updating ordering after creation
 
