@@ -18,7 +18,7 @@ RUN brackets-storage-calls > calls.md
 FROM clone-manager AS build-manager-reference
 RUN npm install typedoc@0.25.0 typedoc-plugin-extras@3.0.0 typedoc-plugin-missing-exports@2.3.0
 RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
-  --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
+  --customTitle 'Go back' --titleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   src/index.ts
 
@@ -33,7 +33,7 @@ WORKDIR /reference/viewer
 RUN npm install
 RUN npm install typedoc@0.25.0 typedoc-plugin-extras@3.0.0 typedoc-plugin-missing-exports@2.3.0
 RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
-  --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
+  --customTitle 'Go back' --titleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   --excludePrivate --excludeExternals --sort source-order \
   src/index.ts
@@ -49,7 +49,7 @@ WORKDIR /reference/model
 RUN npm install
 RUN npm install typedoc@0.25.0 typedoc-plugin-extras@3.0.0 typedoc-plugin-missing-exports@2.3.0
 RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
-  --customTitle 'Go back' --customTitleLink '/brackets-docs/' --footerLastModified \
+  --customTitle 'Go back' --titleLink '/brackets-docs/' --footerLastModified \
   --favicon 'https://drarig29.github.io/brackets-docs/assets/images/favicon.png' \
   src/index.ts
 
