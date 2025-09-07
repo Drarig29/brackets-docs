@@ -56,5 +56,6 @@ markdown_extensions:
       base_path: docs
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.inlinehilite
   - toc:
       permalink: true
