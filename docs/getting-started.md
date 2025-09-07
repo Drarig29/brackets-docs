@@ -46,7 +46,7 @@ const manager = new BracketsManager(storage);
 Now, you can start creating tournament stages!
 
 ```js
-await manager.create({
+await manager.create.stage({
     name: 'Example stage',
     tournamentId: 0, // (1)
     type: 'single_elimination',
