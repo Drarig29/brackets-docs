@@ -30,6 +30,7 @@ nav:
       - 'Ordering': 'user-guide/ordering.md'
       - 'Storage': 'user-guide/storage.md'
       - 'Extra fields': 'user-guide/extra-fields.md'
+      - 'Updating matches': 'user-guide/updating-matches.md'
   - 'FAQ': 'faq.md'
   - 'Demos':
       - 'Angular': https://stackblitz.com/edit/angular-ivy-bhv3yu" target="_blank
