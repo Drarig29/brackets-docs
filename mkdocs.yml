@@ -9,36 +9,36 @@ theme:
     - navigation.top
     - content.code.annotate
   palette:
-    - media: "(prefers-color-scheme: light)" 
+    - media: '(prefers-color-scheme: light)'
       primary: blue
       scheme: default
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)" 
+    - media: '(prefers-color-scheme: dark)'
       primary: blue
       scheme: slate
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
 nav:
-  - "Welcome": "index.md"
-  - "Getting Started": "getting-started.md"
-  - "User Guide":
-    - "Glossary": "user-guide/glossary.md"
-    - "Seeding": "user-guide/seeding.md"
-    - "Ordering": "user-guide/ordering.md"
-    - "Storage": "user-guide/storage.md"
-  - "FAQ": "faq.md"
-  - "Demos":
-    - "Angular": https://stackblitz.com/edit/angular-ivy-bhv3yu" target="_blank
-    - "React": https://replit.com/@Drarig29/React-and-brackets-viewerjs#src/App.js" target="_blank
-    - "Toornament API": https://replit.com/@Drarig29/Toornament-and-brackets-viewerjs#src/App.js" target="_blank
-  - "Reference":
-    - "brackets-manager.js": reference/manager" target="_blank
-    - "brackets-viewer.js": reference/viewer" target="_blank
-    - "brackets-model": reference/model"  target="_blank
-  - "About": "about.md"
+  - 'Welcome': 'index.md'
+  - 'Getting Started': 'getting-started.md'
+  - 'User Guide':
+      - 'Glossary': 'user-guide/glossary.md'
+      - 'Seeding': 'user-guide/seeding.md'
+      - 'Ordering': 'user-guide/ordering.md'
+      - 'Storage': 'user-guide/storage.md'
+  - 'FAQ': 'faq.md'
+  - 'Demos':
+      - 'Angular': https://stackblitz.com/edit/angular-ivy-bhv3yu" target="_blank
+      - 'React': https://replit.com/@Drarig29/React-and-brackets-viewerjs#src/App.js" target="_blank
+      - 'Toornament API': https://replit.com/@Drarig29/Toornament-and-brackets-viewerjs#src/App.js" target="_blank
+  - 'Reference':
+      - 'brackets-manager.js': reference/manager" target="_blank
+      - 'brackets-viewer.js': reference/viewer" target="_blank
+      - 'brackets-model': reference/model"  target="_blank
+  - 'About': 'about.md'
 extra_css:
   - css/style.css
 extra_javascript:
