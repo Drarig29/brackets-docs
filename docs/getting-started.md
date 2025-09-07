@@ -18,14 +18,11 @@ The most common choices are:
 - A **JSON database**, stored in a file
 - An **in-memory database**, stored in a simple variable
 
-To use a storage, you need to use a [CrudInterface](/brackets-docs/reference/manager/interfaces/CrudInterface.html) implementation.
+To use a storage, you need to use a [`CrudInterface`](/brackets-docs/reference/manager/interfaces/CrudInterface.html) implementation.
 
-You will find in [this repository](https://github.com/Drarig29/brackets-storage) a list of NPM packages providing such implementations:
+You will find in [the `brackets-storage` repository](https://github.com/Drarig29/brackets-storage) a list of NPM packages **providing such implementations**.
 
-|            Package |                                                                                                                 |
-| -----------------: | --------------------------------------------------------------------------------------------------------------- |
-|   brackets-json-db | [![npm](https://img.shields.io/npm/v/brackets-json-db.svg)](https://www.npmjs.com/package/brackets-json-db)     |
-| brackets-memory-db | [![npm](https://img.shields.io/npm/v/brackets-memory-db.svg)](https://www.npmjs.com/package/brackets-memory-db) |
+If you can't find an implementation for the storage you want to use, you will have to implement it yourself. See [Storage](./user-guide/storage.md) for more information.
 
 ## Using the manager
 
