@@ -22,6 +22,13 @@ A round is a logical structure used to group multiple matches together.
 - In round-robin stages, a round can be viewed as a day or just as a list of matches that can be played at the same time.
 - In elimination stages, a round is a round of a bracket, e.g. 8th finals, semi-finals, etc.
 
+## Major / minor round
+
+In double elimination stages, the lower bracket (LB) alternates between major and minor rounds.
+
+- A major round is a regular round. (e.g. LB1, LB3, LB5...)
+- A minor round matches the previous (major) round's winners against upper bracket losers of the corresponding round. (e.g. LB2, LB4, LB6...)
+
 ## Match
 
 A match between **two** participants (more participants are not allowed).
