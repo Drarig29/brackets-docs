@@ -24,7 +24,7 @@ A round is a logical structure used to group multiple matches together.
 
 ## Match
 
-A match between **two** participants (more participants are not allowed). Participants can be teams or individuals.
+A match between **two** participants (more participants are not allowed).
 
 Start and end dates or other metadata aren't supported. I believe this is not the purpose of the library, so you'll need to add it on your own.
 
@@ -33,6 +33,10 @@ Start and end dates or other metadata aren't supported. I believe this is not th
 A match game is a child match for a match. You can have multiple match games in a match.
 
 For example, a Best-Of-3 (Bo3) match has 3 match games.
+
+## Participant
+
+A participant can be a team or an individual.
 
 ## Double elimination
 
