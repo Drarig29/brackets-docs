@@ -58,7 +58,7 @@ RUN npx typedoc --plugin typedoc-plugin-extras --readme none --includeVersion \
 
 FROM squidfunk/mkdocs-material:9.6.18
 
-WORKDIR /github/workspace
+WORKDIR /docs
 COPY --from=build-manager-storage-calls /reference/manager/calls.md /user-guide/
 COPY --from=build-manager-reference /reference/manager/docs /reference/manager/
 COPY --from=build-viewer-reference /reference/viewer/docs /reference/viewer/
