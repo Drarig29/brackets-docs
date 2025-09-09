@@ -135,7 +135,7 @@ await manager.create.stage({
 
 ## Updating seeding
 
-You can update the seeding of a stage with `manager.update.seeding()`.
+You can update the seeding of a stage with [`manager.update.seeding()`](/brackets-docs/reference/manager/classes/Update.html#seeding).
 
 ```ts
 await manager.update.seeding(stageId, seeding, [keepSameSize]);
@@ -158,7 +158,7 @@ As long as the seeding update does not impact existing results, it is allowed.
 
 ## Confirming seeding
 
-You can confirm the seeding of a stage with `manager.update.confirmSeeding()`.
+You can confirm the seeding of a stage with [`manager.update.confirmSeeding()`](/brackets-docs/reference/manager/classes/Update.html#confirmSeeding).
 
 ```ts
 await manager.update.confirmSeeding(stageId);
@@ -168,7 +168,7 @@ This will convert TBDs to BYEs and propagate them. Implemented in [#131](https:/
 
 ## Resetting seeding
 
-You can reset the seeding of a stage with `manager.reset.seeding()`.
+You can reset the seeding of a stage with [`manager.reset.seeding()`](/brackets-docs/reference/manager/classes/Reset.html#seeding).
 
 ```ts
 await manager.reset.seeding(stageId);

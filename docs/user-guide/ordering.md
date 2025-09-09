@@ -100,7 +100,7 @@ Index 0 is used for the first lower bracket round (WB losers entering), then ind
 
 You can update ordering before matches begin:
 
-- Per stage with `manager.update.ordering()`: update all rounds at once (fails if any affected match has started or completed).
-- Per round with `manager.update.roundOrdering()`: update a specific round.
+- Per stage with [`manager.update.ordering()`](/brackets-docs/reference/manager/classes/Update.html#ordering): update all rounds at once (fails if any affected match has started or completed).
+- Per round with [`manager.update.roundOrdering()`](/brackets-docs/reference/manager/classes/Update.html#roundOrdering): update a specific round.
 
 For elimination stages, only rounds that support ordering can be updated (upper bracket round 1; lower bracket round 1 and minor rounds).

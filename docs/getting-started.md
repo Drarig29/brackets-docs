@@ -40,7 +40,7 @@ const { BracketsManager } = require('brackets-manager');
 const manager = new BracketsManager(storage);
 ```
 
-Now, you can start creating tournament stages!
+Now, you can start creating tournament stages with [`manager.create.stage()`](/brackets-docs/reference/manager/interfaces/CallableCreate.html#stage)!
 
 ```js
 await manager.create.stage({
@@ -84,9 +84,9 @@ Now you should have access to `window.bracketsViewer`.
 After this, you will need data. Here, either you make an API yourself or you can use [`json-server`](https://www.npmjs.com/package/json-server) to create a quick API directly from the JSON database (if you used `brackets-json-db`).
 
 ???+ Note
-    If you choose to make an API yourself, you can use `manager.get.tournamentData()` and `manager.get.stageData()` to retrieve the needed data for the viewer.
+    If you choose to make an API yourself, you can use [`manager.get.tournamentData()`](/brackets-docs/reference/manager/classes/Get.html#tournamentData) and [`manager.get.stageData()`](/brackets-docs/reference/manager/classes/Get.html#stageData) to retrieve the needed data for the viewer.
 
-Once you have something to get data from - let's assume the result is in a `data` variable for the example - you'll be able to do the following:
+Once you have something to get data from – let's assume the result is in a `data` variable for the example – you'll be able to render the bracket with [`window.bracketsViewer.render()`](/brackets-docs/reference/viewer/classes/BracketsViewer.html#render):
 
 ```js
 window.bracketsViewer.render({
