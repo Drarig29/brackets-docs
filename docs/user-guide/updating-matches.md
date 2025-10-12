@@ -1,16 +1,14 @@
-## Updating matches
-
 This page explains how to update matches and match games with the manager library, and what the library does for you behind the scenes.
 
 The library only lets you update matches one by one, because it is intended to be used on an event basis, when a tournament is running.
 
-### Concepts recap
+## Concepts recap
 
 - **[`Match`](/brackets-docs/reference/model/interfaces/Match.html)**: the parent entity. It can optionally contain several child games when using Best‑of‑X.
 - **[`MatchGame`](/brackets-docs/reference/model/interfaces/MatchGame.html)**: a child game belonging to a parent match. Their scores determine the parent match result.
 - **[`Status`](/brackets-docs/reference/model/enums/Status.html)**: `Locked` (0) > `Waiting` (1) > `Ready` (2) > `Running` (3) > `Completed` (4) > `Archived` (5)
 
-### Update a match
+## Update a match
 
 Use the updater to change partial fields of a match by id. The library validates input, infers results, and propagates effects.
 
@@ -74,7 +72,7 @@ await manager.update.match({
 }
 ```
 
-### Update a match game (Best‑of‑X)
+## Update a match game (Best‑of‑X)
 
 Child games update the parent match automatically.
 
@@ -92,7 +90,7 @@ What happens:
 - When a side reaches the minimum to win `ceil((X+1)/2)` for a Best‑of‑`X` match, the parent match gets marked as completed.
 - If child games lead to an impossible tie in elimination, an error is thrown.
 
-### Adjust Best‑of‑X for existing matches
+## Adjust Best‑of‑X for existing matches
 
 You can change the child game count on every level. The library inserts/deletes games and keeps numbering consistent.
 
@@ -110,7 +108,7 @@ await manager.update.matchChildCount('round', roundId, 3);
 await manager.update.matchChildCount('match', matchId, 4);
 ```
 
-### Forfeits
+## Forfeits
 
 You can mark a side as forfeited. The opponent is awarded the win; a double forfeit yields no result in round‑robin.
 
@@ -121,7 +119,7 @@ await manager.update.match({
 });
 ```
 
-### Tips
+## Tips
 
 - Update matches before their dependents start to avoid cascading constraints.
 - Prefer updating child games when using Best‑of‑X; let the library compute the parent outcome.
