@@ -31,6 +31,7 @@ nav:
       - 'Storage': 'user-guide/storage.md'
       - 'Extra fields': 'user-guide/extra-fields.md'
       - 'Updating matches': 'user-guide/updating-matches.md'
+      - 'Deleting data': 'user-guide/deleting-data.md'
       - 'Helpers': 'user-guide/helpers.md'
       - 'Structure': 'user-guide/structure.md'
   - 'FAQ': 'faq.md'

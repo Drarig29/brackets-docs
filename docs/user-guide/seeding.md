@@ -143,13 +143,8 @@ await manager.update.seeding(stageId, seeding, [keepSameSize]);
 
 If the new seeding is shorter than the previous one, unless you set `keepSameSize` to `true`, the seeding will be shrunk to the new size.
 
-???+ info "About participant deletion"
-    The manager **does not delete participants** when you update the seeding.
-    Participants that were created previously will remain in the database as **leftovers** (a.k.a. ["tombstones"](https://en.wikipedia.org/wiki/Tombstone_(programming))).  
-
-    These participants can be reused in the same bracket or in another stage of the same tournament.  
-
-    This approach avoids accidental data loss and makes it easier to manage participants across multiple stages.
+???+ info
+    If a seeding shrinks in size, the participants **won't be deleted**. See [About participant deletion](deleting-data.md#about-participant-deletion).
 
 In the context of updating the seeding, a `null` value in `Seeding` is treated as a TBD instead of a BYE because we consider the tournament might have been started.
 If it's not and you prefer BYEs, you should recreate the stage from scratch.
