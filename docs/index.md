@@ -9,8 +9,6 @@ All the shared types are shipped in this library:
 
 - [brackets-model](https://github.com/Drarig29/brackets-model)
 
-**This documentation is still under construction...**
-
 ---
 
 --8<-- "statistics.md"
