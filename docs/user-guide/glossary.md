@@ -103,7 +103,8 @@ For elimination stages:
 For round-robin stages:
 
 - The order is **determined by a ranking formula**: participants with the highest total points are at the top of the list.
-- The return value is a list of [`RankingItem`](/brackets-docs/reference/model/interfaces/RankingItem.html).
-- The calculation is the **same as the one used in the viewer** to display ranking tables in each group.
+- The return value is a list of [`RoundRobinFinalStandingsItem`](/brackets-docs/reference/manager/interfaces/RoundRobinFinalStandingsItem.html).
 - The ranking formula can be used for tie-breaking.
 - Match game results (e.g. Bo3) are not taken into account: only parent matches are used as source of truth.
+- You can specify the maximum number of participants to qualify per group with the `maxQualifiedParticipantsPerGroup` option.
+- See [How to handle two-stage tournaments? (e.g. round-robin followed by elimination)](/brackets-docs/faq/#how-to-handle-two-stage-tournaments-eg-round-robin-followed-by-elimination).
