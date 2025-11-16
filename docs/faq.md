@@ -1,5 +1,7 @@
 # FAQ
 
+This page contains frequently asked questions and answers.
+
 ## Why do I need a `tournamentId`?
 
 Although the manager doesn't manipulate the tournaments (no CRUD operation on a "tournament" table), you'll need to give a `tournamentId` to create a stage because you can have multiple stages per tournament.
