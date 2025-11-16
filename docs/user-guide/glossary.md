@@ -88,3 +88,22 @@ Technically speaking, here is how it's represented in a match:
     "opponent2": null, // BYE
 }
 ```
+
+## Final Standings
+
+The final standings of a stage is a list of participants sorted by their rank.
+
+You can get it with [`manager.get.finalStandings()`](/brackets-docs/reference/manager/classes/Get.html#finalStandings).
+
+For elimination stages:
+
+- The order is **determined by the bracket structure**: participants that reached the final are at the top of the list.
+- The return value is a list of [`FinalStandingsItem`](/brackets-docs/reference/manager/interfaces/FinalStandingsItem.html).
+
+For round-robin stages:
+
+- The order is **determined by a ranking formula**: participants with the highest total points are at the top of the list.
+- The return value is a list of [`RankingItem`](/brackets-docs/reference/model/interfaces/RankingItem.html).
+- The calculation is the **same as the one used in the viewer** to display ranking tables in each group.
+- The ranking formula can be used for tie-breaking.
+- Match game results (e.g. Bo3) are not taken into account: only parent matches are used as source of truth.
