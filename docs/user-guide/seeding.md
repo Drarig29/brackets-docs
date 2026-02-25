@@ -21,6 +21,7 @@ Rules by stage type:
 Useful [stage settings](/brackets-docs/reference/model/interfaces/StageSettings.html) related to seeding when using `manager.create.stage()`:
 
 - [`settings.seedOrdering`](/brackets-docs/reference/model/interfaces/StageSettings.html#seedOrdering): How seeds are laid out (per stage type). See the [ordering guide](ordering.md).
+- [`settings.manualOrdering`](/brackets-docs/reference/model/interfaces/StageSettings.html#manualOrdering): Explicit slot order, bypassing `seedOrdering`. See [Manual ordering](ordering.md#manual-ordering).
 - [`settings.balanceByes`](/brackets-docs/reference/model/interfaces/StageSettings.html#balanceByes) (elimination): Avoids BYE vs. BYE matches when padding with BYEs.
 
 
