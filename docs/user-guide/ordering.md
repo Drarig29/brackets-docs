@@ -14,6 +14,50 @@ How many methods to provide:
 If some lower bracket methods are omitted in double elimination, sensible defaults are applied based on the stage size (see [Default lower bracket orderings](#default-lower-bracket-orderings-double-elimination) below).
 
 
+## Manual ordering
+
+Instead of picking an algorithm with `seedOrdering`, you can provide the exact bracket slot order yourself using [`settings.manualOrdering`](/brackets-docs/reference/model/interfaces/StageSettings.html#manualOrdering). When set, `seedOrdering` is ignored.
+
+- **Round-robin**: one list of seeds per group.
+    - e.g. `[[seeds of group 1], [seeds of group 2], ...]`
+- **Single/double elimination**: a single list of seeds for the bracket, wrapped in an outer list.
+    - e.g. `[[seed1, seed2, ...]]`
+
+The total number of seeds must equal the stage size, determined from [`settings.size`](/brackets-docs/reference/model/interfaces/StageSettings.html#size) or the length of [`seeding`](/brackets-docs/reference/model/interfaces/InputStage.html#seeding).
+
+Round-robin (manual group assignment):
+
+```ts
+await manager.create.stage({
+  tournamentId: 1,
+  name: 'Groups',
+  type: 'round_robin',
+  seeding: ['A','B','C','D','E','F','G','H'],
+  settings: {
+    groupCount: 2,
+    manualOrdering: [
+      [1, 4, 6, 7], // seeds in group 1
+      [2, 3, 5, 8], // seeds in group 2
+    ],
+  },
+});
+```
+
+Single elimination (NCAA-style bracket):
+
+```ts
+await manager.create.stage({
+  tournamentId: 1,
+  name: 'Playoffs',
+  type: 'single_elimination',
+  seeding: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'],
+  settings: {
+    manualOrdering: [[1, 16, 8, 9, 5, 12, 4, 13, 6, 11, 3, 14, 7, 10, 2, 15]],
+  },
+});
+```
+
+
 ## Supported methods
 
 - `natural`: keep order as-is.
