@@ -47,6 +47,7 @@ nav:
 extra_css:
   - css/style.css
 extra_javascript:
+  - js/star-history-mock.js
   - js/star-history.js
   - js/load-charts.js
 markdown_extensions:

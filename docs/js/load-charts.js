@@ -1,3 +1,24 @@
+function isDarkMode() {
+    const scheme = document.documentElement.getAttribute('data-md-color-scheme') || document.body.getAttribute('data-md-color-scheme');
+    if (scheme === 'slate') return true;
+    const bg = document.body && getComputedStyle(document.body).backgroundColor;
+    if (!bg || bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent') return false;
+    const m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    if (!m) return false;
+    const [, r, g, b] = m.map(Number);
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance < 0.4;
+}
+
+function getChartTheme() {
+    const dark = isDarkMode();
+    return {
+        grid: dark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.1)',
+        ticks: dark ? 'rgba(255, 255, 255, 0.87)' : 'rgba(0, 0, 0, 0.6)',
+        title: dark ? 'rgba(255, 255, 255, 0.87)' : 'rgba(0, 0, 0, 0.87)',
+    };
+}
+
 const repos = [
     {
         label: 'brackets-manager.js',
@@ -22,18 +43,18 @@ const getOrCreateTooltip = (chart) => {
 
     if (!tooltipEl) {
         tooltipEl = document.createElement('div');
-        tooltipEl.style.background = 'rgba(0, 0, 0, 0.5)';
         tooltipEl.style.borderRadius = '5px';
-        tooltipEl.style.color = 'white';
         tooltipEl.style.opacity = 1;
         tooltipEl.style.pointerEvents = 'none';
         tooltipEl.style.position = 'absolute';
         tooltipEl.style.transform = 'translate(-50%, 0)';
         tooltipEl.style.transition = 'all .1s ease';
-
         chart.canvas.parentNode.appendChild(tooltipEl);
     }
 
+    const dark = isDarkMode();
+    tooltipEl.style.background = dark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.7)';
+    tooltipEl.style.color = dark ? 'rgba(255, 255, 255, 0.87)' : '#fff';
     return tooltipEl;
 };
 
@@ -67,10 +88,13 @@ const externalTooltipHandler = (context) => {
 
 if (window.Chart) {
     Promise.all(repos.map(repo => getStarHistory(`Drarig29/${repo.label}`))).then(histories => {
+        const theme = getChartTheme();
         const chart = new Chart('chart', {
             type: 'line',
             options: {
-                aspectRatio: 2,
+                color: theme.ticks,
+                backgroundColor: 'transparent',
+                aspectRatio: 4 / 3,
                 interaction: {
                     mode: 'nearest',
                     intersect: false,
@@ -78,8 +102,12 @@ if (window.Chart) {
                 plugins: {
                     title: {
                         display: true,
-                        position: 'left',
-                        text: 'GitHub stars history'
+                        position: 'top',
+                        text: 'GitHub stars history',
+                        color: theme.title,
+                    },
+                    legend: {
+                        labels: { color: theme.ticks },
                     },
                     tooltip: {
                         enabled: false,
@@ -96,7 +124,13 @@ if (window.Chart) {
                         type: 'time',
                         display: true,
                         offset: true,
-                        time: { unit: 'day' }
+                        time: { unit: 'day' },
+                        grid: { color: theme.grid },
+                        ticks: { color: theme.ticks },
+                    },
+                    y: {
+                        grid: { color: theme.grid },
+                        ticks: { color: theme.ticks },
                     },
                 }
             },
@@ -105,17 +139,40 @@ if (window.Chart) {
         const datasets = histories.map((history, i) => ({
             ...repos[i],
             data: history,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            tension: 0.2,
         }));
 
         chart.data = { datasets };
         chart.update();
+
+        const observer = new MutationObserver(() => {
+            const theme = getChartTheme();
+            chart.options.color = theme.ticks;
+            chart.options.plugins.title.color = theme.title;
+            chart.options.plugins.legend.labels.color = theme.ticks;
+            chart.options.scales.x.grid.color = theme.grid;
+            chart.options.scales.x.ticks.color = theme.ticks;
+            chart.options.scales.y.grid.color = theme.grid;
+            chart.options.scales.y.ticks.color = theme.ticks;
+            chart.update('none');
+        });
+        const observeTheme = (target) => {
+            observer.observe(target, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+        };
+        observeTheme(document.documentElement);
+        observeTheme(document.body);
     }).catch(() => {
         console.error('Failed to load chart data');
 
+        const theme = getChartTheme();
         const chart = new Chart('chart', {
             type: 'line',
             options: {
-                aspectRatio: 2,
+                color: theme.ticks,
+                backgroundColor: 'transparent',
+                aspectRatio: 4 / 3,
                 interaction: {
                     mode: 'nearest',
                     intersect: false,
@@ -123,13 +180,27 @@ if (window.Chart) {
                 plugins: {
                     title: {
                         display: true,
-                        position: 'left',
-                        text: 'GitHub stars history'
+                        position: 'top',
+                        text: 'GitHub stars history',
+                        color: theme.title,
+                    },
+                    legend: {
+                        labels: { color: theme.ticks },
                     },
                     tooltip: {
                         enabled: false,
                     }
                 },
+                scales: {
+                    x: {
+                        grid: { color: theme.grid },
+                        ticks: { color: theme.ticks },
+                    },
+                    y: {
+                        grid: { color: theme.grid },
+                        ticks: { color: theme.ticks },
+                    },
+                }
             },
         });
 
