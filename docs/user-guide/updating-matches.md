@@ -136,7 +136,7 @@ await manager.update.match({
 });
 ```
 
-A forfeit on both sides is possible. In elimination stages, this results in a disqualification of both opponents. See [double forfeit](#double-forfeit) in the glossary for more information.
+A forfeit on both sides is possible. In elimination stages, this results in a disqualification of both opponents. See [double forfeit](glossary.md#double-forfeit) in the glossary for more information.
 
 ```ts
 await manager.update.match({
