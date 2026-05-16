@@ -88,7 +88,24 @@ What happens:
 
 - Scores across child games are aggregated.
 - When a side reaches the minimum to win `ceil((X+1)/2)` for a Best‑of‑`X` match, the parent match gets marked as completed.
+- Remaining child games stay available after the parent match is completed, so organizers can still record them if they want.
 - If child games lead to an impossible tie in elimination, an error is thrown.
+
+## Cancel a match game
+
+If a match game cannot be played, cancel it with `cancelMatchGame()` instead of setting `Status.GameCancelled` manually.
+
+```ts
+await manager.update.cancelMatchGame(matchGameId, { mode: 'spent_game' });
+await manager.update.cancelMatchGame(matchGameId, { mode: 'double_forfeit' });
+```
+
+There are two cancellation modes:
+
+- `spent_game`: the match game is cancelled and consumes one Best‑of‑X game without awarding it to either opponent.
+- `double_forfeit`: the cancelled match game ends the parent match as a double forfeit.
+
+Do not use `manager.update.match()` or `manager.update.matchGame()` to set `Status.GameCancelled` directly. Use `cancelMatchGame()` so the parent match is updated consistently.
 
 ## Adjust Best‑of‑X for existing matches
 
@@ -110,12 +127,22 @@ await manager.update.matchChildCount('match', matchId, 4);
 
 ## Forfeits
 
-You can mark a side as forfeited. The opponent is awarded the win; a double forfeit yields no result in round‑robin.
+You can mark a side as forfeited. The opponent is awarded the win.
 
 ```ts
 await manager.update.match({
   id: 42,
   opponent1: { forfeit: true },
+});
+```
+
+A forfeit on both sides is possible. In elimination stages, this results in a disqualification of both opponents. See [double forfeit](#double-forfeit) in the glossary for more information.
+
+```ts
+await manager.update.match({
+  id: 42,
+  opponent1: { forfeit: true },
+  opponent2: { forfeit: true },
 });
 ```
 

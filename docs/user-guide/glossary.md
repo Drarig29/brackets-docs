@@ -41,6 +41,22 @@ A match game is a child match for a match. You can have multiple match games in 
 
 For example, a Best-Of-3 (Bo3) match has 3 match games.
 
+A match game can be cancelled with `manager.update.cancelMatchGame()`. A cancellation can either consume one Best-Of-X game without awarding it to either opponent, or end the parent match as a [double forfeit](#double-forfeit).
+
+## Forfeit
+
+A forfeit is an administrative result where one opponent loses without a regular played result. The opponent is awarded the win.
+
+If a forfeit is applied after scores or results already exist, scores remain, but the result is reset.
+
+## Double forfeit
+
+A double forfeit marks both opponents as forfeited. It is **not** a draw, and it gives no result points in round‑robin rankings.
+
+If a forfeit is applied after scores or results already exist, scores remain, but the result is reset.
+
+In elimination stages, a double forfeit **disqualifies** both opponents, and following matches receive a [BYE](#bye).
+
 ## Participant
 
 A participant can be a team or an individual.
