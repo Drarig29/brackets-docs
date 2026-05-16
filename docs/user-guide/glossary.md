@@ -65,7 +65,23 @@ A participant can be a team or an individual.
 
 A double elimination stage is a stage with two brackets: a winner bracket and a loser bracket (sometimes called upper bracket and lower bracket).
 
-When players lose in the upper bracket, they have a second chance: they are sent into the lower bracket and can eventually match against the winner of the upper bracket in the Grand Final if they win all their matches in the lower bracket.
+When players lose in the upper bracket, they have a second chance: they are sent into the lower bracket and can eventually match against the winner of the upper bracket in the [Grand Final](#grand-final) if they win all their matches in the lower bracket.
+
+## Grand Final
+
+In a double elimination stage, the Grand Final is the final match, or final pair of matches, between the winner of the upper bracket and the winner of the lower bracket.
+
+When `settings.grandFinal` is `double`, the Grand Final can have a second match if the lower bracket winner beats the upper bracket winner in the first match. This second match is commonly known as the [reset match](#reset-match).
+
+## Consolation Final
+
+In an elimination stage, the Consolation Final is an optional match between both semi-final losers. It determines third and fourth place.
+
+## Reset match
+
+In a double grand final, the **reset match** is the second grand final match.
+
+The bracket is reset when the player from the lower bracket beats the player from the upper bracket in the first grand final. They then play a final match because both players now have one loss in the tournament.
 
 ## BYE
 
