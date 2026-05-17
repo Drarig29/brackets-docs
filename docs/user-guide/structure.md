@@ -29,7 +29,7 @@ If the stage is configured to have a [Consolation Final](glossary.md#consolation
 For the [Consolation Final](glossary.md#consolation-final), a round is created with a single match, matching both **upper bracket** semi-final losers.
 
 ???+ note "Technical detail about the consolation final"
-    To differentiate the grand final and [Consolation Final](glossary.md#consolation-final) matches which always are `number: 1`, the [Consolation Final](glossary.md#consolation-final) match is `number: 2` **although it's the only match in its round**.
+    In order to differentiate the [Grand Final](glossary.md#grand-final) and [Consolation Final](glossary.md#consolation-final) matches which always are `number: 1`, the [Consolation Final](glossary.md#consolation-final) match is arbitrarily set to `number: 2` **although it's the only match in its round**.
 
 ## Opponent `position` property in matches
 
