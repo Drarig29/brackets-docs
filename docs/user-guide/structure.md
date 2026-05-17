@@ -14,7 +14,7 @@ If the stage is configured to have a [Consolation Final](glossary.md#consolation
 
 ## Double elimination
 
-In double elimination stages, there are two groups: the upper bracket (a.k.a. "winner bracket") and the lower bracket (a.k.a. "loser bracket").
+In double elimination stages, there are at least two groups: the upper bracket (a.k.a. "winner bracket") and the lower bracket (a.k.a. "loser bracket"). There may also be a final group for the Grand Final, the Consolation Final, or both.
 
 The **upper bracket** yields one winner, and multiple losers.
 
